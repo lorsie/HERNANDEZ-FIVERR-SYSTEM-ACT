@@ -30,4 +30,7 @@ CREATE TABLE offers (
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES fiverr_clone_users(user_id),
     FOREIGN KEY (proposal_id) REFERENCES proposals(proposal_id)
+
 );
+
+ALTER TABLE offers ADD CONSTRAINT unique_offer UNIQUE (proposal_id, user_id);
